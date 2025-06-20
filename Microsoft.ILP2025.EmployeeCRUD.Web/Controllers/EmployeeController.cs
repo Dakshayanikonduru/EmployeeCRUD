@@ -15,6 +15,7 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Web.Controllers
         }
 
         // GET: EmployeeController
+        
         public async Task<ActionResult> Index()
         {
             var employees = await this.employeeService.GetAllEmployees();
@@ -26,6 +27,9 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Web.Controllers
         {
             var employee = await this.employeeService.GetEmployee(id);
             return View(employee);
-        }      
+        }
+        public IActionResult Create(EmployeeEntity emp){
+            employeeService.Create(emp);
+        }
     }
 }
